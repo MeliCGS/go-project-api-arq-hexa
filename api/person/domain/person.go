@@ -6,6 +6,8 @@ type Person struct {
 	Apellido  string     `json:"apellido"`
 	Edad      int        `json:"edad"`
 	Direccion *Direccion `json:"direccion"`
+	Text      string     `json:"text"`
+	Done      bool       `json:"done"`
 }
 
 type Direccion struct {

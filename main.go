@@ -20,7 +20,21 @@ func main() {
 			Repo: &person_infrastructure.FakePersonRepository{},
 		},
 	}
+	personDeleteController := &person_infrastructure.PersonDeleteController{
+		PeopleDelete: &person_application.PeopleDelete{
+			Repo: &person_infrastructure.FakePersonRepository{},
+		},
+	}
+
+	personUpdateController := &person_infrastructure.PersonUpdateController{
+		PeopleUpdate: &person_application.PeopleUpdate{
+			Repo: &person_infrastructure.FakePersonRepository{},
+		},
+	}
+
 	r.GET("/people", personController.GetAllHandler)
 	r.POST("/people", personAddController.GetAllHandler)
+	r.DELETE("/people/:id", personDeleteController.GetAllHandler)
+	r.PATCH("/people/:id", personUpdateController.GetAllHandler)
 	r.Run(":8000")
 }
